@@ -1,3 +1,3 @@
-# binancebtcticker
-Binance BTC/USDT ticker 
-It's just a current price fetcher.
+# binancebtcpriceticker
+Binance futures BTC/USDTprice
+It's just a price ticker.
