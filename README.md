@@ -1,3 +1,3 @@
 # binancebtcpriceticker
-Binance futures BTC/USDTprice
+Binance futures BTC/USDT price.
 It's just a price ticker.
