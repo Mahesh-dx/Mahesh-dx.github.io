@@ -3,40 +3,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BTCUSDT ticker</title>
   <style>
-    span{
-      width:7px;
-      height:2px;
-      border: 2px solid white;
-      padding:20px;
-      align : center;
-    }
-    #mylc{
-      color:white;
-      margin-left:-20px;
-    }
-    #mylc1{
-      margin-left:20px;
-      color:white;
-    }
-    div{
+    body{
+      margin: 0;
+      padding: 0;
       width:100%;
       height:100%;
-      text-align: center;
-      padding-top:200px;
-      color: white;
       background-color: black;
+      display: flex;
+      justify-content: center;
+    }
+    #container{
+      display: flex;
+      justify-content: center;
+      margin-top: 20%;
+      color: white;
+      width: 80%;
+      height: 7%;
+      border: 2px solid black;
+    }
+    span{
+      text-align: center;
+      width: 17%;
+      padding:20px;
+      font-size: 2em;
+    }
+    .symbol{
+      color:white;
+      margin-left:-25%;
+    }
+    .price{
+      margin-left:20%;
+      color:white;
+    }
+    .symbol::after{
+      padding-left: 15%;
+      content: ":";
+      font-size: ;
+      
     }
   </style>
 </head>
 <body>
+  <!--<h2 style="color:white;">BINANCE</h2><br/>-->
 <script> 
 let cont=document.createElement("div");
-let s1=document.createElement("span");
+cont.id="container";
+/*let s1 = document.createElement("span");
+s1.setAttribute("class","symbol");
 s1.id="mylc";
 cont.appendChild(s1);
 let s2=document.createElement("span");
+s2.setAttribute("class","Price");
 s2.id = "mylc1";
-cont.appendChild(s2);
+cont.appendChild(s2);*/
 document.body.appendChild(cont);
 function local(){
   var request = new XMLHttpRequest();
@@ -46,14 +65,14 @@ function local(){
       for(let i in data){
        if(data[i].symbol == "BTCUSDT"){
         var b= data[i];
-        document.getElementById("mylc").innerHTML=b.symbol;
-        document.getElementById("mylc1").innerHTML=b.price;
+        document.getElementById("container").innerHTML = '<span class="symbol">' + b.symbol + '</span>' + '<span class="price">' + b.price + '</span>' + '<br/>';
+        //document.getElementById("mylc1").innerHTML=b.price;
        }
       }
     }
   request.send();
 }
-setInterval(local,0.1);
+setInterval(local,0.01);
 </script>  
 </body>
 </html>
